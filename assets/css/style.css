@@ -109,3 +109,9 @@ body {
     border-color: green ;
     color: white;
 }
+
+.card-done {
+    background-color: white;
+    border-color: lightgray;
+    color: black;
+}

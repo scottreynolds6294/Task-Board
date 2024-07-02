@@ -26,6 +26,10 @@ function createTaskCard(task) {
 
  card.classList.add(cardColorClass);
 
+ if (task.status === 'done') {
+    card.classList.add('card-done');
+}
+
  const title = document.createElement('h4');
  title.textContent = task.title;
  title.classList.add('card-title', 'mb-3');

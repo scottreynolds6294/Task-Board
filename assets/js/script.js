@@ -14,13 +14,25 @@ function createTaskCard(task) {
  card.id = task.id;
  card.classList.add('task-card', 'mb-3', 'p-3');
 
+ const today = dayjs();
+ const dueDate = dayjs(task.dueDate);
+ let cardColorClass = '';
+
+ if (dueDate.isBefore(today, 'day')){
+    cardColorClass = 'card-red'
+ } else if (dueDate.isSame(today, 'day')){
+    cardColorClass = 'card-yellow';
+ } else {cardColorClass = 'card-green'};
+
+ card.classList.add(cardColorClass);
+
  const title = document.createElement('h4');
  title.textContent = task.title;
  title.classList.add('card-title', 'mb-3');
 
- const dueDate = document.createElement('p');
- dueDate.textContent = 'Due Date: ' + task.dueDate;
- dueDate.classList.add('card-text', 'text-muted', 'small');
+ const dueDateEl = document.createElement('p');
+ dueDateEl.textContent = 'Due Date: ' + task.dueDate;
+ dueDateEl.classList.add('card-text', 'small');
     
  const description = document.createElement('p');
  description.textContent = task.description;
@@ -31,7 +43,7 @@ function createTaskCard(task) {
  deleteButton.classList.add('btn', 'btn-danger', 'delete-button', 'mt-3');
  deleteButton.addEventListener('click', () => handleDeleteTask(task.id));
  card.append(title);
- card.append(dueDate);
+ card.append(dueDateEl);
  card.append(description);
  card.append(deleteButton);
  return card;

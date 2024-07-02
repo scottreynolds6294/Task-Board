@@ -92,3 +92,20 @@ body {
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .card-red {
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+
+.card-yellow {
+    background-color: yellow;
+    border-color: yellow;
+}
+
+.card-green {
+    background-color: green;
+    border-color: green ;
+    color: white;
+}

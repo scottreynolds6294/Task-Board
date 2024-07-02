@@ -43,6 +43,10 @@ function renderTaskList() {
     const inProgressContainer = document.getElementById('in-progress-cards');
     const doneContainer = document.getElementById('done-cards');
 
+    todoContainer.innerHTML = '';
+    inProgressContainer.innerHTML = '';
+    doneContainer.innerHTML = '';
+
     taskList.forEach(task => {
         const taskCard = createTaskCard(task);
         if (task.status === 'todo') {
@@ -99,11 +103,14 @@ function handleDeleteTask(taskId) {
 function handleDrop(event, ui) {
     const taskId = ui.draggable.attr('id');
     const newStatus = event.target.id;
+    ui.draggable.remove();
     const updatedTask = taskList.find(task => task.id === taskId);
     updatedTask.status = newStatus;
-    ui.draggable.remove();
-    localStorage.setItem('tasks', JSON.stringify(taskList));
-    renderTaskList();
+    if (updatedTask) {
+        updatedTask.status = newStatus;
+        localStorage.setItem('tasks', JSON.stringify(taskList));
+        renderTaskList(); // Re-render task list after status update
+    }
     
 }
 

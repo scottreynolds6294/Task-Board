@@ -11,8 +11,6 @@ Each task card is rendered with a delete button, that will delete the task when 
 The task cards and delete function are saved to localStorage and will persist when refreshed.
 All code was completed by Scott Reynolds.
 
-NOTE: functionality is limted when opened with liveServer and at the deployed application page, but the application is fully functional when opened with default browser.
-
 link to completed application: https://scottreynolds6294.github.io/Task-Board/
 
 ![alt text](<assets/images/Screenshot 2024-07-01 at 10.44.03 PM.png>)
